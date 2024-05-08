@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+    <changeSet id="0001-1" author="MWit">
+            <column name="datetime" type="TIMESTAMP"/>
+            <column name="duration" type="INTEGER"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="arena_id" type="BIGINT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_game_arena"
+                             referencedTableName="arena"
+                             referencedColumnNames="id"/>
+            </column>
+        <addColumn catalogName="sign_me_up"
+                   schemaName= "public"
+                   tableName="person">
+            <column name="address"
+                    type="varchar(255)"/>
+            <column name="name"
+                    type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>
